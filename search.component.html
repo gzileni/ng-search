@@ -1,0 +1,52 @@
+<div class="search first box">
+
+  <div fxLayout="row" fxLayoutAlign="space-around center">
+
+    <!-- logo -->
+    <div fxFlex="5" [fxShow]="loading">
+      <mat-spinner></mat-spinner>
+    </div>
+
+    <!-- logo -->
+    <div fxFlex="10" class="search-logo" align="center">
+      <img src="assets/img/logo.jpg" width="64px" height="64px" alt="logo" />
+    </div>
+
+    <!-- search form -->
+    <div fxFlex fxFill class="search-form" align="center">
+      <form>
+        <mat-form-field class="search-full-width" appearance="fill">
+          <mat-label>City</mat-label>
+          <input matInput placeholder="Scrivi il nome della città" [formControl]="search">
+          <mat-hint class="search-filter">
+            <mat-icon>date_range</mat-icon>
+            {{ search_response_range }}
+            <mat-icon *ngIf="configuration == 'ambiente'">air</mat-icon>
+            <span *ngIf="configuration == 'ambiente'">{{ search_response_pollution }}</span>
+            <mat-icon *ngIf="search_response_station != ''">pin_drop</mat-icon>
+            {{ search_response_station }}
+          </mat-hint>
+        </mat-form-field>
+      </form>
+    </div>
+
+    <!-- buttons -->
+    <div fxFlex="20" fxFill align="center">
+      <button type="button" mat-icon-button color="primary" aria-label="Layers icon" (click)="onSearch($event)">
+        <mat-icon>search</mat-icon>
+      </button>
+      <button type="button" mat-icon-button color="primary" aria-label="Layers icon" (click)="addLayerFoto()">
+        <mat-icon>{{ isLayerFoto ? 'image_not_supported' : 'insert_photo' }}</mat-icon>
+      </button>
+      <button type="button" mat-icon-button color="primary" aria-label="Layers icon" (click)="onConfiguration('ambiente')">
+        <mat-icon>co2</mat-icon>
+      </button>
+
+    </div>
+  </div>
+
+</div>
+
+<app-search-config [visible]="isConfiguration" [pollution]="search_response_pollution"></app-search-config>
+
+

@@ -1,0 +1,62 @@
+<div class="search second box" *ngIf="visible">
+  <div fxLayout="column" fxLayoutAlign="space-between stretch" fxLayoutGap="20px">
+    <div fxLayout="row" fxFille fxLayoutAlign="space-between stretch">
+      <div fxFill fxFlex="50" align="center">
+
+        <!-- range data -->
+        <mat-form-field appearance="fill" color="primary" class="search-form-field">
+          <mat-label>Enter a date range</mat-label>
+          <mat-date-range-input [rangePicker]="rangePicker" [formGroup]="search_date">
+            <input matStartDate placeholder="Start date" (dateChange)="onDateChange()" formControlName="start">
+            <input matEndDate placeholder="End date" (dateChange)="onDateChange()" formControlName="end">
+          </mat-date-range-input>
+          <mat-datepicker-toggle matSuffix [for]="rangePicker"></mat-datepicker-toggle>
+          <mat-date-range-picker #rangePicker>
+            <mat-date-range-picker-actions>
+              <button type="button" mat-button matDateRangePickerCancel>Cancel</button>
+              <button type="button" mat-raised-button color="primary" matDateRangePickerApply>Apply</button>
+            </mat-date-range-picker-actions>
+          </mat-date-range-picker>
+        </mat-form-field>
+      </div>
+
+      <!-- Pollution -->
+      <div fxFlex="50" align="center">
+        <app-search-ambiente></app-search-ambiente>
+      </div>
+
+    </div>
+
+    <div fxFlex [fxShow]="visible_graph" class="box">
+      <mat-card>
+        <mat-card-title>{{ graph_data_line.title }}</mat-card-title>
+        <mat-card-subtitle>{{ graph_data_line.subtitle }} - {{ graph_data_line.info }} - {{ pollution }} ({{ graph_data_line.um }}) </mat-card-subtitle>
+        <mat-card-content>
+          <div>
+            <!-- TODO: add D3 Graph-->
+            <app-graph-line-area [title]="graph_data_line.title"
+                                  [width]="width_graph"
+                                  [height]="height_graph"
+                                  [unit]="graph_data_line.um"
+                                  [data]="graph_data_line.dataset"
+                                  [format]="format">
+            </app-graph-line-area>
+          </div>
+        </mat-card-content>
+        <mat-card-actions *ngIf="graph_data_line.url != ''" align="end">
+          <div fxLayout="row" fxFille fxLayoutAlign="space-between stretch" fxLayoutGap="5px">
+            <div fxFlex>
+              <button type="button" color="accent" mat-flat-button (click)="onExport('CSV')">CSV</button>
+            </div>
+            <div fxFlex>
+              <button type="button" color="accent" mat-flat-button (click)="onExport('JSON')">JSON</button>
+            </div>
+            <div fxFlex>
+              <button type="button" color="primary" mat-flat-button (click)="closeGraph()">Chiudi</button>
+            </div>
+          </div>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  </div>
+</div>

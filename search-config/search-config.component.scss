@@ -1,0 +1,153 @@
+
+
+.search-form-field {
+  width: 90%;
+  margin-top: 20px;
+  margin-left: 20px;
+  margin-right: 20px;
+  color: black;
+  background-color: white;
+  z-index: 500;
+}
+
+.search-additional-selection {
+  opacity: 0.75;
+  font-size: 0.75em;
+}
+
+.search-range {
+  width: 100%;
+}
+
+.search-label-container .search-label-horizontal {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 0 12px 16px;
+  max-width: 284px;
+}
+
+.search-value-label {
+  font-weight: 600;
+}
+
+.search-label-container .search-label-vertical {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 68px;
+  height: 48px;
+}
+
+::ng-deep .mat-form-field {
+
+  width: 90%;
+
+  .mat-input-element {
+    color: slategray;
+  }
+
+  .mat-form-field-label {
+    color: slategray;
+  }
+
+  .mat-form-field-underline {
+    background-color: slategray;
+  }
+
+  .mat-form-field-ripple {
+    background-color: slategray;
+  }
+
+  .mat-form-field-required-marker {
+    color: slategray;
+  }
+
+  button {
+    color: slategray;
+  }
+
+  span {
+    color: slategray;
+  }
+}
+
+::ng-deep .mat-form-field.mat-focused {
+
+  width: 90%;
+
+  .mat-form-field-label {
+    color: #ff884d;
+  }
+
+  .mat-form-field-ripple {
+    background-color: #ff884d;
+  }
+
+  .mat-form-field-required-marker {
+    color: #ff884d;
+  }
+
+  .mat-input-element {
+    color: #ff884d;
+  }
+
+  button {
+    color: #ff884d;
+  }
+
+  span {
+    color: #ff884d;
+  }
+}
+
+::ng-deep .mat-form-field.mat-form-field-invalid {
+
+  width: 90%;
+
+  .mat-input-element {
+    color: #ff33cc;
+  }
+
+  .mat-form-field-label {
+    color: #ff33cc;
+
+    .mat-form-field-required-marker {
+      color: #ff33cc;
+    }
+  }
+
+  .mat-form-field-ripple {
+    background-color: #ff33cc;
+  }
+
+  button {
+    background-color: #ff33cc;
+  }
+
+  span {
+    background-color: #ff33cc;
+  }
+}
+
+mat-card {
+  background: white;
+}
+
+mat-card-title {
+  color: black;
+}
+
+mat-card-subtitle {
+  color: gray;
+}
+
+mat-card-actions {
+  color: black;
+}
+
+mat-card-content {
+  color: black;
+}
+
+
